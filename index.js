@@ -22,7 +22,10 @@ const getUser = (request, response, next) => {
 	}
 };
 
+const postUser = (request, response, next) => {};
+
 app.use("/:id", getUser);
+app.use("/newUser", postUser);
 
 const users = [
 	{
