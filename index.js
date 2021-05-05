@@ -22,10 +22,12 @@ const getUser = (request, response, next) => {
 	}
 };
 
-const postUser = (request, response, next) => {};
+const postUser = (request, response, next) => {
+	response.status(201).send({ username: "anthony", password: "test" });
+};
 
-app.use("/:id", getUser);
 app.use("/newUser", postUser);
+app.use("/:id", getUser);
 
 const users = [
 	{
