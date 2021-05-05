@@ -57,6 +57,7 @@ describe("/newUser", () => {
 			.then((res) => {
 				expect(res.body.user.username).to.equal("vincent");
 				expect(res.body.user.password).to.equal("hushHush");
+				expect(typeof res.body.user.id).to.equal("number");
 			});
 	});
 });
