@@ -9,11 +9,16 @@ app.use(cors());
 app.use(express.json());
 
 const getUser = (request, response, next) => {
-	const user = users.filter((user) => user.id == request.params.id);
-	if (user.length === 0) {
-		response.status(404).send({ msg: "ID does not exist" });
+	if (!parseInt(request.params.id) && request.params.id !== "0") {
+		response.status(400).send({ msg: "Invalid user ID" });
 	} else {
-		response.status(200).send({ user: user[0] });
+		const user = users.filter((user) => user.id == request.params.id);
+
+		if (user.length === 0) {
+			response.status(404).send({ msg: "ID does not exist" });
+		} else {
+			response.status(200).send({ user: user[0] });
+		}
 	}
 };
 
