@@ -7,6 +7,13 @@ describe("/:id", () => {
 	it("GET - 200 for successful request for user", () => {
 		return request(app).get("/1").expect(200);
 	});
+	it("GET - returns an object", () => {
+		return request(app)
+			.get("/0")
+			.then((res) => {
+				expect(typeof res.body.user).to.equal("object");
+			});
+	});
 	it("GET - returns requested user object", () => {
 		return request(app)
 			.get("/1")
