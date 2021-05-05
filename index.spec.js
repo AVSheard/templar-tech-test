@@ -50,6 +50,14 @@ describe("/newUser", () => {
 			.send({ username: "anthony", password: "test" })
 			.expect(201);
 	});
+	it("POST - returns an object", () => {
+		return request(app)
+			.post("/newUser")
+			.send({ username: "AVSheard", password: "password" })
+			.then((res) => {
+				expect(typeof res.body.user).to.equal("object");
+			});
+	});
 	it("POST - check id keys have correct values", () => {
 		return request(app)
 			.post("/newUser")
