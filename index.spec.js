@@ -76,4 +76,22 @@ describe("/newUser", () => {
 				expect(res.body.msg).to.equal("Incomplete data for creating new user");
 			});
 	});
+	it("POST - 400 when username is missing from request", () => {
+		return request(app)
+			.post("/newUser")
+			.send({ password: "justPassword" })
+			.expect(400)
+			.then((res) => {
+				expect(res.body.msg).to.equal("Incomplete data for creating new user");
+			});
+	});
+	it("POST - 400 when password is missing from request", () => {
+		return request(app)
+			.post("/newUser")
+			.send({ username: "justUsername" })
+			.expect(400)
+			.then((res) => {
+				expect(res.body.msg).to.equal("Incomplete data for creating new user");
+			});
+	});
 });
