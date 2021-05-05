@@ -68,4 +68,12 @@ describe("/newUser", () => {
 				expect(typeof res.body.user.id).to.equal("number");
 			});
 	});
+	it("POST - 400 when body is missing from request", () => {
+		return request(app)
+			.post("/newUser")
+			.expect(400)
+			.then((res) => {
+				expect(res.body.msg).to.equal("Incomplete data for creating new user");
+			});
+	});
 });
