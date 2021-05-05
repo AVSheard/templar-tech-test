@@ -1,4 +1,6 @@
-const filterByUsername = () => {};
+const filterByUsername = (usersArray, username) => {
+	return [];
+};
 
 const addKey = () => {};
 
