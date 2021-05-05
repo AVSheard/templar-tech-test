@@ -25,4 +25,12 @@ describe("/:id", () => {
 				});
 			});
 	});
+	it("GET - 404 with correct message for user id that does not exist", () => {
+		return request(app)
+			.get("/9999999")
+			.expect(404)
+			.then((res) => {
+				expect(res.body.msg).to.equal("ID does not exist");
+			});
+	});
 });
