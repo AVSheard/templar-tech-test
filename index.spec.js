@@ -50,7 +50,7 @@ describe("/newUser", () => {
 			.send({ username: "anthony", password: "test" })
 			.expect(201);
 	});
-	it("POST - 201 for successfully adding new user", () => {
+	it("POST - check id keys have correct values", () => {
 		return request(app)
 			.post("/newUser")
 			.send({ username: "vincent", password: "hushHush" })
