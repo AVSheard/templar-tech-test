@@ -10,7 +10,11 @@ app.use(express.json());
 
 const getUser = (request, response, next) => {
 	const user = users.filter((user) => user.id == request.params.id);
-	response.send({ user: user[0] });
+	if (user.length === 0) {
+		response.status(404).send({ msg: "ID does not exist" });
+	} else {
+		response.status(200).send({ user: user[0] });
+	}
 };
 
 app.use("/:id", getUser);
