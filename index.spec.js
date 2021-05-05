@@ -33,4 +33,12 @@ describe("/:id", () => {
 				expect(res.body.msg).to.equal("ID does not exist");
 			});
 	});
+	it("GET - 400 with correct message for invalid id", () => {
+		return request(app)
+			.get("/NOT-AN-ID")
+			.expect(400)
+			.then((res) => {
+				expect(res.body.msg).to.equal("Invalid user ID");
+			});
+	});
 });
