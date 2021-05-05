@@ -23,14 +23,18 @@ const getUser = (request, response, next) => {
 };
 
 const postUser = (request, response, next) => {
-	users.push({
-		username: request.body.username,
-		password: request.body.password,
-		id: users.length,
-	});
-	response.status(201).send({
-		user: users[users.length - 1],
-	});
+	if (!request.body.username || !request.body.password) {
+		response.status(400).send({ msg: "Incomplete data for creating new user" });
+	} else {
+		users.push({
+			username: request.body.username,
+			password: request.body.password,
+			id: users.length,
+		});
+		response.status(201).send({
+			user: users[users.length - 1],
+		});
+	}
 };
 
 app.use("/newUser", postUser);
