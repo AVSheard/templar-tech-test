@@ -50,4 +50,13 @@ describe("/newUser", () => {
 			.send({ username: "anthony", password: "test" })
 			.expect(201);
 	});
+	it("POST - 201 for successfully adding new user", () => {
+		return request(app)
+			.post("/newUser")
+			.send({ username: "vincent", password: "hushHush" })
+			.then((res) => {
+				expect(res.body.user.username).to.equal("vincent");
+				expect(res.body.user.password).to.equal("hushHush");
+			});
+	});
 });
