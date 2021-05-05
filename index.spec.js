@@ -11,7 +11,7 @@ describe("/:id", () => {
 		return request(app)
 			.get("/1")
 			.then((res) => {
-				expect(res.body.user).to.equal({
+				expect(res.body.user).to.deep.equal({
 					id: 1,
 					username: "admin",
 					password: "test",

@@ -9,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 const getUser = (request, response, next) => {
-	response.send(users);
+	const user = users.filter((user) => user.id == request.params.id);
+	response.send({ user: user[0] });
 };
 
 app.use("/:id", getUser);
