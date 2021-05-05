@@ -23,7 +23,14 @@ const getUser = (request, response, next) => {
 };
 
 const postUser = (request, response, next) => {
-	response.status(201).send({ username: "anthony", password: "test" });
+	users.push({
+		username: request.body.username,
+		password: request.body.password,
+		id: users.length,
+	});
+	response.status(201).send({
+		user: users[users.length - 1],
+	});
 };
 
 app.use("/newUser", postUser);
