@@ -42,3 +42,12 @@ describe("/:id", () => {
 			});
 	});
 });
+
+describe("/newUser", () => {
+	it("POST - 201 for successfully adding new user", () => {
+		return request(app)
+			.post("/newUser")
+			.send({ username: "anthony", password: "test" })
+			.expect(201);
+	});
+});
