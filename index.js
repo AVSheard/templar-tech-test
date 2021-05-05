@@ -7,6 +7,8 @@ app.use(express.json());
 
 app.use("/:id", getUser);
 
+const getUser = (request, response, next) => {};
+
 const users = [
 	{
 		id: 0,
