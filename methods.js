@@ -4,7 +4,7 @@ const filterByUsername = (usersArray, username) => {
 
 const addKey = (usersArray, newKey, defaultValue) => {
 	return usersArray.map((user) => {
-		user[newKey] = undefined;
+		user[newKey] = defaultValue;
 		return user;
 	});
 };
