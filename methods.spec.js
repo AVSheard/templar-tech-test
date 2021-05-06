@@ -94,3 +94,11 @@ describe("filterByUsername", () => {
 		expect(actual).to.eql(expected);
 	});
 });
+
+describe("addKey", () => {
+	it("returns [] when passed [] and empty string", () => {
+		const actual = addKey([], "");
+		const expected = [];
+		expect(actual).to.eql(expected);
+	});
+});
