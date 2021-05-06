@@ -122,4 +122,36 @@ describe("addKey", () => {
 		];
 		expect(actual).to.eql(expected);
 	});
+	it("returns array with key added successfully to multiple array entries", () => {
+		const actual = addKey(
+			[
+				{
+					id: 0,
+					username: "test",
+					password: "test",
+				},
+				{
+					id: 1,
+					username: "admin",
+					password: "test",
+				},
+			],
+			"admin"
+		);
+		const expected = [
+			{
+				id: 0,
+				username: "test",
+				password: "test",
+				admin: undefined,
+			},
+			{
+				id: 1,
+				username: "admin",
+				password: "test",
+				admin: undefined,
+			},
+		];
+		expect(actual).to.eql(expected);
+	});
 });
