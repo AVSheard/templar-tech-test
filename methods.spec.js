@@ -176,4 +176,37 @@ describe("addKey", () => {
 		];
 		expect(actual).to.eql(expected);
 	});
+	it("returns array with key and default key value added successfully to multiple entries", () => {
+		const actual = addKey(
+			[
+				{
+					id: 0,
+					username: "test",
+					password: "test",
+				},
+				{
+					id: 1,
+					username: "admin",
+					password: "test",
+				},
+			],
+			"admin",
+			false
+		);
+		const expected = [
+			{
+				id: 0,
+				username: "test",
+				password: "test",
+				admin: false,
+			},
+			{
+				id: 1,
+				username: "admin",
+				password: "test",
+				admin: false,
+			},
+		];
+		expect(actual).to.eql(expected);
+	});
 });
