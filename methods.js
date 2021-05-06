@@ -1,5 +1,5 @@
 const filterByUsername = (usersArray, username) => {
-	return [];
+	return usersArray.filter((user) => user.username === username);
 };
 
 const addKey = () => {};
