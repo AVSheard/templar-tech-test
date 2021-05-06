@@ -3,7 +3,10 @@ const filterByUsername = (usersArray, username) => {
 };
 
 const addKey = (usersArray, newKey, defaultValue) => {
-	return [];
+	return usersArray.map((user) => {
+		user[newKey] = undefined;
+		return user;
+	});
 };
 
 module.exports = { filterByUsername, addKey };
