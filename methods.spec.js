@@ -28,4 +28,29 @@ describe("filterByUsername", () => {
 		];
 		expect(actual).to.eql(expected);
 	});
+	it("returns given array with unrequested entries removed", () => {
+		const actual = filterByUsername(
+			[
+				{
+					id: 0,
+					username: "test",
+					password: "test",
+				},
+				{
+					id: 1,
+					username: "admin",
+					password: "test",
+				},
+			],
+			"test"
+		);
+		const expected = [
+			{
+				id: 0,
+				username: "test",
+				password: "test",
+			},
+		];
+		expect(actual).to.eql(expected);
+	});
 });
